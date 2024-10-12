@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load form_filters %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Register</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name|add_class:"form-control" }}
+                    </div>
+
+
+                    <div class="mb-3">
+                        {{ form.phone.label_tag }}
+                        {{ form.phone|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.password1.label_tag }}
+                        {{ form.password1|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        Confirm Password:
+                        {{ form.password2|add_class:"form-control" }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

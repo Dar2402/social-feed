@@ -1,0 +1,6 @@
+<h2>Edit Message</h2>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="content">{{ message.content }}</textarea>
+    <button type="submit">Update</button>
+</form>
