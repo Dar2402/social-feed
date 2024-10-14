@@ -43,6 +43,9 @@ def update_message(request, message_id):
 def delete_message(request, message_id):
     message = Message.objects.get(id=message_id)
     if request.user == message.user:
+        comments=Comment.objects.filter(message=message)
+        for comment in comments:
+            comment.delete()
         message.delete()
     return redirect('feed:feed_page')
 
